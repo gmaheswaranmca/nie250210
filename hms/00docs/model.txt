@@ -1,0 +1,3 @@
+departments: id, name, description 
+
+Design : list of departments, create department, edit department 
