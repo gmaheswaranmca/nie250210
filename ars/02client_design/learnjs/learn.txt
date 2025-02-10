@@ -1,0 +1,144 @@
+C:\mywork\source\nie250210\ars\02client_design\learnjs>node
+Welcome to Node.js v20.10.0.
+Type ".help" for more information.
+> 2 + 3
+5
+> floor(5/2)
+Uncaught ReferenceError: floor is not defined
+> 5 / 2
+2.5
+> parseInt(5 / 2)
+2
+> let first = 10
+undefined
+> let second = 3
+undefined
+> first / second
+3.3333333333333335
+> second = 4
+4
+> first / second
+2.5
+> if(first > second)
+... console.log(first, 'is max')
+10 is max
+undefined
+> for(let I = 1; I <= 5; I++) {
+... console.log(I);
+... }
+1
+2
+3
+4
+5
+undefined
+> let I = 1;
+undefined
+> while(I <= 5) {
+... console.log(I);
+... I++;
+... }
+1
+2
+3
+4
+5
+5
+> let car1 = {id: '102011', number: 'KA25 T3456', model:'Ambesiter', type: 'Sedan'}
+undefined
+> car1.number
+'KA25 T3456'
+> `My car is of ${car1.type}`
+'My car is of Sedan'
+> let a = 10, b = 20;
+undefined
+> let sum = a + b;
+undefined
+> 'The sum 10 and 20 is 30'
+'The sum 10 and 20 is 30'
+> `The sum of ${a} and ${b} is ${sum}`
+'The sum of 10 and 20 is 30'
+> let salaries = [1000, 2000.0, 3000.0];
+undefined
+> salaries[0]
+1000
+> salaries.push(4000.0)
+4
+> salaries
+[ 1000, 2000, 3000, 4000 ]
+> let {number} = car1
+undefined
+> number
+'KA25 T3456'
+> let names = ['rahul dravid', 'vinoth kambli']
+undefined
+> let [name1, name2]  = names;
+undefined
+> name1
+'rahul dravid'
+> name2
+'vinoth kambli'
+> let salaries2 = salaries;
+undefined
+> salaries2[2] = 200;
+200
+> salaries
+[ 1000, 2000, 200, 4000 ]
+> salaries2
+[ 1000, 2000, 200, 4000 ]
+> let salaries3 = [... salaries]
+undefined
+> salaries3[2] = 100;
+100
+> salaries
+[ 1000, 2000, 200, 4000 ]
+> salaries3
+[ 1000, 2000, 100, 4000 ]
+> let car1 = {id: '102011', number: 'KA25 T3456', model:'Ambesiter', type: 'Sedan'}
+Uncaught SyntaxError: Identifier 'car1' has already been declared
+> let car2 = car1
+undefined
+> car2.type = 'SUV'
+'SUV'
+> car1
+{ id: '102011', number: 'KA25 T3456', model: 'Ambesiter', type: 'SUV' }
+> car2
+{ id: '102011', number: 'KA25 T3456', model: 'Ambesiter', type: 'SUV' }
+> let car3 = {... car1}
+undefined
+> car3.type = 'CUV'
+'CUV'
+> car1
+{ id: '102011', number: 'KA25 T3456', model: 'Ambesiter', type: 'SUV' }
+> car3
+{ id: '102011', number: 'KA25 T3456', model: 'Ambesiter', type: 'CUV' }
+> function findSum(first, second) {
+... return first + second;
+... }
+undefined
+> findSum(10,20)
+30
+> findSum(1,20)
+21
+> function(a,b){ return a + b; }(2,3);
+function(a,b){ return a + b; }(2,3);
+^^^^^^^^
+
+Uncaught SyntaxError: Function statements require a function name
+> const f = function(a,b) { return a + b; };
+undefined
+> f(2,3);
+5
+> const g = (a,b) => { return a + b;}
+undefined
+> g(2,3)
+5
+> const h = (a,b) => a+b
+undefined
+> h(2,3)
+5
+> const findSquare = a => a * a
+undefined
+> findSquare(2)
+4
+>
