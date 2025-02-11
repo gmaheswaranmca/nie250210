@@ -1,6 +1,9 @@
+import PageHeader from "../header/PageHeader";
+
 function FlightList() {
     return (
         <>
+            <PageHeader PageNumber={1}/>
             <h3>List of Flights</h3>
             <div className="container">
                 <table className="table table-primary table-striped">
@@ -20,7 +23,7 @@ function FlightList() {
                             <td>Mumbai</td>
                             <td>Abu dhabi</td>
                             <td>
-                                <a href="flight_edit.html?id=1023459870" className="btn btn-warning">Edit</a>
+                                <a href="/flights/edit/1023459870" className="btn btn-warning">Edit Price</a>
                                 <button className="btn btn-danger">Delete</button>
                             </td>
                         </tr>
@@ -30,7 +33,7 @@ function FlightList() {
                             <td>Hyderabad</td>
                             <td>Bengaluru</td>
                             <td>
-                                <a href="flight_edit.html?id=202111222" className="btn btn-warning">Edit</a>
+                                <a href="/flights/edit/202111222" className="btn btn-warning">Edit Price</a>
                                 <button className="btn btn-danger">Delete</button>
                             </td>
                         </tr>
