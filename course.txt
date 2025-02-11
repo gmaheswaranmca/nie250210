@@ -58,3 +58,6 @@ src/flights/
     FlightList.jsx 
     FlightCreate.jsx 
     FlightEdit.jsx 
+
+To install react-router-dom for navigation between page components 
+   $ npm install react-router-dom
