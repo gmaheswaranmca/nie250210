@@ -1,0 +1,60 @@
+	Fronend 			Backend				DataSource 				Editor/IDE
+	JS					Go					Mongo					Visual Studio Code 
+	npm/node msi		msi					mongo compass
+--------------------------------------------------------------------------------------
+01 bootstrap designs 
+
+02 react app designs 
+    - react             - fronend app development framework + package of node.js + UI (presentation)
+        - component 
+            - state 
+            - props
+
+            - ui 
+                - form control 
+                - data binding 
+                - event binding 
+        - router 
+            - navigate 
+            - param 
+    - where react app is developed?
+        - server side js == node.js 
+    - where react app is used? 
+        - client side (browser)
+            - translation of server side js code base into client side code base 
+
+    - full stack 
+        [client] [application/business] [data]
+                 -----------------
+                 [server] 
+        
+        react       go lang             mongo / cassandra  
+        angular     express             oracle 
+        vue         django/flask        sql server 
+                    web api c#          mysql 
+                    java spring         sqlite 
+                                        posgres 
+--------------------------------------------------------------------------------------
+    To create react application named "client" 
+    $ npx create-react-app client 
+    OR 
+    $ npm create vite@latest client -- --template react 
+
+    To create react appliction under current folder named "client" 
+    $ npm create vite@latest . -- --template react  
+--------------------------------------------------------------------------------------
+index.html 
+    bootstrap css + js 
+src/main.jsx 
+    //index.css 
+src/App.jsx 
+    route(navigation) bt PageList,          PageCreate,         PageEdit                                       
+                         /flights/list      /flights/create     /flights/edit/:id
+
+                         <PageHeader/>      <PageHeader/>       <PageHeader/>
+src/header/
+    PageHeader.jsx 
+src/flights/
+    FlightList.jsx 
+    FlightCreate.jsx 
+    FlightEdit.jsx 
