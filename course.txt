@@ -61,3 +61,23 @@ src/flights/
 
 To install react-router-dom for navigation between page components 
    $ npm install react-router-dom
+--------------------------------------------------------------------------------------
+01bs 
+    client          !bootstrap based html files 
+02app_design 
+    client          !react based app design 
+03app_mongoless 
+    client 
+    server          go lang | backend | RESTful API : http based web service 
+--------------------------------------------------------------------------------------
+car : id, number, model, type 
+
+car management: 
+    !CRUD operations   method       URL             base server url : http://localhost:8080
+                       verb         noun
+    Create car         POST         /cars           {"number":"KA3 Z8978","model":"Ambesiter","type":"Sedan"}
+    Read All cars      GET          /cars 
+    Read car By Id     GET          /cars/:id
+    Update car         PUT          /cars/:id       {"number":"KA3 Z8978","model":"Ambesiter","type":"Sedan"}
+    Delete car         DELETE       /cars/:id
+--------------------------------------------------------------------------------------
