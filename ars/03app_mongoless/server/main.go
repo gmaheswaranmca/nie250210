@@ -31,13 +31,62 @@ func readAllFlights(c *gin.Context) {
 	c.JSON(http.StatusOK, flights)
 }
 
+func readFlightById(c *gin.Context) {
+	id := c.Param("id")
+	flight := Flight {Id: id, Number: "AI 845",
+			ArilineName: "Air India", Source: "Mumbai",
+			Destination: "Abu Dhabi", Capacity: 180,
+			Price: 15000.0}
+	c.JSON(http.StatusOK, flight)
+}
+
+func createFlight(c *gin.Context) {
+	var jbodyFlight Flight 
+	err := c.BindJSON(&jbodyFlight)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, 
+			gin.H{"error" : "Server Error." + err.Error()})
+		return 
+	}
+	createdFlight := Flight {Id: "1001", Number: "AI 845",
+				ArilineName: "Air India", Source: "Mumbai",
+				Destination: "Abu Dhabi", Capacity: 180, Price: 15000.0}
+	c.JSON(http.StatusCreated, 
+				gin.H{"message" : "Flight Created Successfully.",
+			         "flight" : createdFlight})
+}
+
+func updateFlight(c *gin.Context) {
+	id := c.Param("id")//
+	var jbodyFlight Flight 
+	err := c.BindJSON(&jbodyFlight)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, 
+			gin.H{"error" : "Server Error." + err.Error()})
+		return 
+	}
+	updatedFlight := Flight {Id: id, Number: "AI 845",//
+				ArilineName: "Air India", Source: "Mumbai",
+				Destination: "Abu Dhabi", Capacity: 180, Price: 15000.0}
+	c.JSON(http.StatusOK, 
+				gin.H{"message" : "Flight Updated Successfully.",//
+			         "flight" : updatedFlight})//
+}
+
+func deleteFlight(c *gin.Context) {
+	//id := c.Param("id")
+	c.JSON(http.StatusOK, 
+				gin.H{"message" : "Flight Deleted Successfully."})
+}
 func main() {
 	//router
 	r := gin.Default()
 	//routes | API Endpoints
 	r.GET("/flights", readAllFlights)
-	//server (default port 8080) //r.Run(":8080")
-	r.Run()
-	/*
-		fmt.Println(flight1)*/
+	r.GET("/flights/:id", readFlightById)
+	r.POST("/flights", createFlight)
+	r.PUT("/flights/:id", updateFlight)
+	r.DELETE("/flights/:id", deleteFlight)
+	//server 
+	r.Run(":8080")	
 }
