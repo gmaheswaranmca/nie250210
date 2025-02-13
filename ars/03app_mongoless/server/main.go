@@ -3,8 +3,10 @@ package main
 import (
 	//"fmt"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 )
 
 type Flight struct {
