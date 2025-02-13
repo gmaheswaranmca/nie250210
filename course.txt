@@ -81,3 +81,204 @@ car management:
     Update car         PUT          /cars/:id       {"number":"KA3 Z8978","model":"Ambesiter","type":"Sedan"}
     Delete car         DELETE       /cars/:id
 --------------------------------------------------------------------------------------
+
+
+D:/trichy/srirangam> npm create vite@latest client -- --template react 
+D:/trichy/srirangam> cd client 
+D:/trichy/srirangam/client> npm install 
+D:/trichy/srirangam/client> npm run dev 
+    Open "http://localhost:5173/" in the browser like chrome or edge 
+    To stop react app running 
+        Ctrl + C 
+D:/trichy/srirangam/client> code .                  
+        This command will open our react app named "client" in the vsc.
+D:/trichy/srirangam/client> npm run dev
+    1. 
+    ```index.html 
+        ...
+            <title>Airline Reservation System</title>
+        ...
+    ```                  
+    2. 
+    ```src/App.jsx 
+        function App() {
+            return (
+                <>
+                Hello World!!!
+                </>
+            )
+        }
+
+        export default App
+    ```
+    3. 
+    ```src/main.jsx 
+    ```
+    remove "import './index.css'"
+    4. 
+        I want to include bootstrap.
+        go to the official bootstrap page. 
+        navigate to "docs" page.
+        Point 2 under "Getting Stareted -> Introduction"
+        Copy "link" element to the index.html above the closing head element.
+        Copy "script" element to the index.html above the closing body element.
+
+
+    ```src/App.jsx 
+        function App() {
+            return (
+                <>
+                    <h3>Hello World!!!</h3>
+                    <button class="btn btn-primary">Hi</button>
+                </>
+            )
+        }
+
+        export default App
+    ```
+
+        !!! Bootstrap is included.
+    5. How do we define a component in react? 
+        i. define a function in .jsx file
+            name of the file 
+            and 
+            name of the function should be same.
+            The function name should be pascal casing. 
+            export the name to be usable by other module.
+            Have some ui in the "return" statement. [put inside the emplty element]
+
+        ```src/header/PageHeader.jsx 
+        function PageHeader() {
+            return (
+                <>
+                    <h3>Nav Bar</h3>
+                </>
+            )
+        }
+        export default PageHeader;
+        ```
+    6. 
+        ```src/flights/FlightList.jsx 
+        import PageHeader from "../header/PageHeader";
+
+        function FlightList() {
+            return (
+                <>
+                    <PageHeader/>
+                    <h3>List of Flights</h3>
+                </>
+            )
+        }
+        export default FlightList;
+        ```
+
+        ```src/flights/FlightCreate.jsx 
+        import PageHeader from "../header/PageHeader";
+
+        function FlightCreate() {
+            return (
+                <>
+                    <PageHeader/>
+                    <h3>New Flight</h3>
+                </>
+            )
+        }
+        export default FlightCreate;
+        ```
+
+
+        ```src/flights/FlightEdit.jsx 
+        import PageHeader from "../header/PageHeader";
+
+        function FlightEdit() {
+            return (
+                <>
+                    <PageHeader/>
+                    <h3>Edit Flight Ticket Price</h3>
+                </>
+            )
+        }
+        export default FlightEdit;
+        ```
+    7. Ctrl+C
+        D:/trichy/srirangam/client> npm install react-router-dom 
+        !Downloads and Installs the package "react-router-dom"
+
+        D:/trichy/srirangam/client> npm run dev 
+    8. Define Routes in the App.jsx 
+    ```src/App.jsx 
+    import { BrowserRouter, Route, Routes } from "react-router-dom"
+    import FlightCreate from "./flights/FlightCreate"
+    import FlightEdit from "./flights/FlightEdit"
+    import FlightList from "./flights/FlightList"
+
+
+    function App() {
+    return (
+        <>
+        <BrowserRouter>
+            <Routes>
+            <Route path="" element={<FlightList/>}/>
+            <Route path="/flights/list" element={<FlightList/>}/>
+            <Route path="/flights/create" element={<FlightCreate/>}/>
+            <Route path="/flights/edit/:id" element={<FlightEdit/>}/>
+            </Routes>
+        </BrowserRouter>
+        </>
+    )
+    }
+
+    export default App
+    ```
+
+    ```
+    import { useNavigate } from "react-router-dom";
+    import PageHeader from "../header/PageHeader";
+
+    function FlightEdit() {
+        const navigate = useNavigate()
+        const OnGo = function() {
+            navigate('/flights/list')
+        }
+        return (
+            <>
+                <PageHeader/>
+                <h3><a href="/flights/list" class="btn btn-light">Go Back</a>Edit Flight Ticket Price</h3>
+                <button class="btn btn-success"
+                    onClick={OnGo}>Go</button>
+            </>
+        )
+    }
+    export default FlightEdit;
+    ```
+-------------------------------------------------
+Intro to react is over.
+-------------------------------------------------
+
+
+Start to write full stack app. 
+
+copy the client application design folder 
+    from "ars/02client_design/"
+
+assumption: server is running in server folder:
+    $ go run main.go 
+now we have the client folder: 
+    $ npm install 
+    $ npm install axios 
+    Notes: `axios` is the client library 
+    to do backend api call 
+    $ npm run dev 
+
+C:\Users\gmahe>node
+Welcome to Node.js v20.10.0.
+Type ".help" for more information.
+> const salaries = [1000.0, 25000.0, 35000.0, 28000.0]
+undefined
+> salaries
+[ 1000, 25000, 35000, 28000 ]
+> const increments = salaries.map( (sal) => { return sal + 5;} )
+undefined
+> increments
+[ 1005, 25005, 35005, 28005 ]
+>    

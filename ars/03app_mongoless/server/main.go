@@ -5,18 +5,18 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 )
 
 type Flight struct {
-	Id          string	`json:"id"`
-	Number      string	`json:"number"`
-	ArilineName string	`json:"ariline_name"`
-	Source      string	`json:"source"`
-	Destination string	`json:"destination"`
-	Capacity    int		`json:"capacity"`
-	Price       float32	`json:"price"`
+	Id          string  `json:"id"`
+	Number      string  `json:"number"`
+	ArilineName string  `json:"airline_name"`
+	Source      string  `json:"source"`
+	Destination string  `json:"destination"`
+	Capacity    int     `json:"capacity"`
+	Price       float32 `json:"price"`
 }
 
 func readAllFlights(c *gin.Context) {
@@ -35,50 +35,50 @@ func readAllFlights(c *gin.Context) {
 
 func readFlightById(c *gin.Context) {
 	id := c.Param("id")
-	flight := Flight {Id: id, Number: "AI 845",
-			ArilineName: "Air India", Source: "Mumbai",
-			Destination: "Abu Dhabi", Capacity: 180,
-			Price: 15000.0}
+	flight := Flight{Id: id, Number: "AI 845",
+		ArilineName: "Air India", Source: "Mumbai",
+		Destination: "Abu Dhabi", Capacity: 180,
+		Price: 15000.0}
 	c.JSON(http.StatusOK, flight)
 }
 
 func createFlight(c *gin.Context) {
-	var jbodyFlight Flight 
+	var jbodyFlight Flight
 	err := c.BindJSON(&jbodyFlight)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, 
-			gin.H{"error" : "Server Error." + err.Error()})
-		return 
+		c.JSON(http.StatusInternalServerError,
+			gin.H{"error": "Server Error." + err.Error()})
+		return
 	}
-	createdFlight := Flight {Id: "1001", Number: "AI 845",
-				ArilineName: "Air India", Source: "Mumbai",
-				Destination: "Abu Dhabi", Capacity: 180, Price: 15000.0}
-	c.JSON(http.StatusCreated, 
-				gin.H{"message" : "Flight Created Successfully.",
-			         "flight" : createdFlight})
+	createdFlight := Flight{Id: "1001", Number: "AI 845",
+		ArilineName: "Air India", Source: "Mumbai",
+		Destination: "Abu Dhabi", Capacity: 180, Price: 15000.0}
+	c.JSON(http.StatusCreated,
+		gin.H{"message": "Flight Created Successfully.",
+			"flight": createdFlight})
 }
 
 func updateFlight(c *gin.Context) {
-	id := c.Param("id")//
-	var jbodyFlight Flight 
+	id := c.Param("id") //
+	var jbodyFlight Flight
 	err := c.BindJSON(&jbodyFlight)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, 
-			gin.H{"error" : "Server Error." + err.Error()})
-		return 
+		c.JSON(http.StatusInternalServerError,
+			gin.H{"error": "Server Error." + err.Error()})
+		return
 	}
-	updatedFlight := Flight {Id: id, Number: "AI 845",//
-				ArilineName: "Air India", Source: "Mumbai",
-				Destination: "Abu Dhabi", Capacity: 180, Price: 15000.0}
-	c.JSON(http.StatusOK, 
-				gin.H{"message" : "Flight Updated Successfully.",//
-			         "flight" : updatedFlight})//
+	updatedFlight := Flight{Id: id, Number: "AI 845", //
+		ArilineName: "Air India", Source: "Mumbai",
+		Destination: "Abu Dhabi", Capacity: 180, Price: 15000.0}
+	c.JSON(http.StatusOK,
+		gin.H{"message": "Flight Updated Successfully.", //
+			"flight": updatedFlight}) //
 }
 
 func deleteFlight(c *gin.Context) {
 	//id := c.Param("id")
-	c.JSON(http.StatusOK, 
-				gin.H{"message" : "Flight Deleted Successfully."})
+	c.JSON(http.StatusOK,
+		gin.H{"message": "Flight Deleted Successfully."})
 }
 func main() {
 	//router
@@ -98,6 +98,6 @@ func main() {
 	r.POST("/flights", createFlight)
 	r.PUT("/flights/:id", updateFlight)
 	r.DELETE("/flights/:id", deleteFlight)
-	//server 
-	r.Run(":8080")	
+	//server
+	r.Run(":8080")
 }
