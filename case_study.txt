@@ -1,0 +1,9 @@
+1. server app           -> main.go 
+2. test server app using thunder client 
+3. client app
+----------------------------------------------------------
+folders: 
+    hms                 <-          name of app 
+        client 
+        server 
+----------------------------------------------------------

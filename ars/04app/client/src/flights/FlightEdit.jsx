@@ -13,7 +13,7 @@ function FlightEdit() {
     }
     const params = useParams();
     const readFlightById = async () => {
-        alert(params.id);
+        //alert(params.id);
         try {
             const baseUrl = 'http://localhost:8080'
             const response = await axios.get(`${baseUrl}/flights/${params.id}`);
