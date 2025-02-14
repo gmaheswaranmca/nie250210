@@ -15,6 +15,16 @@ function FlightList() {
         }
     };
     useEffect(()=>{ readAllFlights(); },[]);
+    const OnDelete = async (id) => {
+        try {
+            const baseUrl = 'http://localhost:8080'
+            const response = await axios.delete(`${baseUrl}/flights/${id}`);
+            alert(response.data.message)
+            readAllFlights();
+        } catch(error) {
+            alert('Server Error');
+        }
+    }
     return (
         <>
             <PageHeader PageNumber={1}/>
@@ -40,7 +50,8 @@ function FlightList() {
                                 <td>{flight.destination}</td>
                                 <td>
                                     <a href={`/flights/edit/${flight.id}`} className="btn btn-warning">Edit Price</a>
-                                    <button className="btn btn-danger">Delete</button>
+                                    <button className="btn btn-danger"
+                                        onClick={()=>{OnDelete(flight.id);}}>Delete</button>
                                 </td>
                             </tr>
                             );
